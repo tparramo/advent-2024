@@ -49,7 +49,7 @@ class CeresMonitoringService {
                 var diagonal = ""
                 var index = 0
                 //from starting point going down one step and right one step
-                while (row + index < horizontalLines.size && index < stringLength) {//lower half of matrix
+                while (row + index < horizontalLines.size && index < stringLength) {
                     diagonal += horizontalLines[row + index][index]
                     index++
                 }
@@ -62,7 +62,7 @@ class CeresMonitoringService {
                 for (col in 0 until stringLength) {
                     var diagonal = ""
                     var index = 0
-                    while ( index < horizontalLines.size && col + index < stringLength) {//from the starting point down index
+                    while ( index < horizontalLines.size && col + index < stringLength) {
                         diagonal += horizontalLines[index][stringLength - col - index - 1]
                         index++
                     }
