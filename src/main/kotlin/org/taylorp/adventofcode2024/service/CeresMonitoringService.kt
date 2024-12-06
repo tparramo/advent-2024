@@ -108,7 +108,7 @@ class CeresMonitoringService {
         for(row in 1 until horizontalLines.size-1){
             for(col in 1 until stringLength-1) {
                 val possibleCrossPoint = horizontalLines[row][col]
-                //starting at 1,1, find A. (skip first row and first column as it cannot contain the crosspoint of an x)
+                //starting at 1,1, find A. (skip first and last row and column as it cannot contain the crosspoint of an x)
                 //when A found, check four corners
                 if (possibleCrossPoint == 'A') {
                     val cornerUpLeft = horizontalLines[row-1][col-1]
