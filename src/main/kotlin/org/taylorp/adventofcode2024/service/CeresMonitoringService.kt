@@ -9,7 +9,6 @@ class CeresMonitoringService {
     //day 4 part 1 AKA matrix math without using matrices or math libraries. YUCK!
 
     //Create list of each line and each diagonal line.
-    //Remove diagonal lines less than 4 (xmas.length)
     //Regex find on each lineString for backwards and forwards xmas string
 
     //solution drawback - any line greater than max string size (2+billion characters)
