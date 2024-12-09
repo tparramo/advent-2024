@@ -9,7 +9,6 @@ class CeresMonitoringService {
     //day 4 part 1 AKA matrix math without using matrices or math libraries. YUCK!
 
     //Create list of each line and each diagonal line.
-    //Remove diagonal lines less than 4 (xmas.length)
     //Regex find on each lineString for backwards and forwards xmas string
 
     //solution drawback - any line greater than max string size (2+billion characters)
@@ -50,7 +49,7 @@ class CeresMonitoringService {
                 var diagonal = ""
                 var index = 0
                 //from starting point going down one step and right one step
-                while (row + index < horizontalLines.size && index < stringLength) {//lower half of matrix
+                while (row + index < horizontalLines.size && index < stringLength) {
                     diagonal += horizontalLines[row + index][index]
                     index++
                 }
@@ -63,7 +62,7 @@ class CeresMonitoringService {
                 for (col in 0 until stringLength) {
                     var diagonal = ""
                     var index = 0
-                    while ( index < horizontalLines.size && col + index < stringLength) {//from the starting point down index
+                    while ( index < horizontalLines.size && col + index < stringLength) {
                         diagonal += horizontalLines[index][stringLength - col - index - 1]
                         index++
                     }
@@ -109,7 +108,7 @@ class CeresMonitoringService {
         for(row in 1 until horizontalLines.size-1){
             for(col in 1 until stringLength-1) {
                 val possibleCrossPoint = horizontalLines[row][col]
-                //starting at 1,1, find A. (skip first row and first column as it cannot contain the crosspoint of an x)
+                //starting at 1,1, find A. (skip first and last row and column as it cannot contain the crosspoint of an x)
                 //when A found, check four corners
                 if (possibleCrossPoint == 'A') {
                     val cornerUpLeft = horizontalLines[row-1][col-1]

@@ -69,11 +69,8 @@ class OfficeService {
         var sum = 0
         for(item in firstList){
             if(dataOccurrenceMap.containsKey(item)){
-                println(item == 0)
                 val occurrenceMultiplied = item * (dataOccurrenceMap[item]?.occurrences?:0)
-                println(occurrenceMultiplied)
                 sum += occurrenceMultiplied
-                println(sum)
             }
         }
         return sum
