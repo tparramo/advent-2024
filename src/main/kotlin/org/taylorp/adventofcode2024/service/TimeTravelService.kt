@@ -165,7 +165,7 @@ class TimeTravelService {
             return 0
         }
         //looking for 0,1(left), 0,2 (right), 1,2 (bot right), 1,1 (bot left) - so find 3 and create the 4th
-        
+
 
         return hitsList.size-1
     }
