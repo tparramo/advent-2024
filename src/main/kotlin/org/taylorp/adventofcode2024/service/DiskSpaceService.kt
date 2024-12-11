@@ -22,8 +22,8 @@ class DiskSpaceService {
                     //not the last item so space will not be 0
                     space = originalData[i+1].digitToInt()
                 }
-                blocks.add(BlockData(fileId, size, space))
-
+                val block = BlockData(fileId, size, space)
+                blocks.add(block)
                 for(j in 0 until size){
                     finalBlocks.add(fileId.toString())
                 }
@@ -54,7 +54,48 @@ class DiskSpaceService {
                 count += (index * filtered[index].toLong())
             }
         }else{
-            //todo tomorrow
+            for(i in blocks.size-1 downTo 1){
+                val mover = blocks[i]
+                val moverLength = mover.length
+                for(j in 0 until i){
+                    val block = blocks[j]
+                    val remainingSpace = block.space-moverLength
+                    if(remainingSpace>=0){
+                        block.space = 0
+                        if(j!=(i-1)){
+                            blocks[i-1].space += moverLength+mover.space
+                            mover.space = remainingSpace
+                        }else{
+                            mover.space+=remainingSpace+moverLength
+                        }
+                        blocks.add(j+1, blocks[i])
+                        blocks.removeAt(i+1)
+                        break;
+                    }
+                }
+            }
+
+
+            var finals = mutableListOf<String>()
+            for(block in blocks){
+                for(i in 0 until block.length){
+                    finals.add(block.index.toString())
+                }
+                for(j in 0 until block.space){
+                    finals.add(".")
+                }
+            }
+
+            for(index in 0 until finals.size){
+                if(finals[index] == "."){
+                    continue
+                }
+                println("count = $index * ${finals[index]}")
+                println("$count")
+                count+=(index * finals[index].toLong())
+                println("$count")
+            }
+
         }
         return count
     }
