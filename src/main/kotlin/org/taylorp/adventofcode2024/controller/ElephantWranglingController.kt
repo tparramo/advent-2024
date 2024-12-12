@@ -16,12 +16,12 @@ class ElephantWranglingController {
     private lateinit var service: ElephantWranglingService
 
     @PostMapping("/day7/part1")
-    fun d2p1(@RequestPart("file") file: MultipartFile): ResponseEntity<Long> {
-        return ResponseEntity(service.getValidInputCounts(file),HttpStatus.OK)
+    fun d2p1v1(@RequestPart("file") file: MultipartFile): ResponseEntity<Long> {
+        return ResponseEntity(service.getValidInputCounts(file, false),HttpStatus.OK)
     }
 
     @PostMapping("/day7/part2")
-    fun d2p2(@RequestPart("file") file: MultipartFile): ResponseEntity<Long> {
-        return ResponseEntity(service.getValidInputCounts(file), HttpStatus.OK)
+    fun d2p2v2(@RequestPart("file") file: MultipartFile): ResponseEntity<Long> {
+        return ResponseEntity(service.getValidInputCounts(file, true), HttpStatus.OK)
     }
 }
